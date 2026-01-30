@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=QT Calculator
+GenericName=Some software idk
+Comment=Calculate stuff
+Exec=/opt/qtqmlproj_calc/bin/appQtQMLProj_Calc
+Icon=qtqmlproj_calc-icon
+Terminal=false
+Categories=Development;Qt;Graphics;
+StartupWMClass=appQtQMLProj_Calc
