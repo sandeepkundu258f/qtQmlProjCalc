@@ -6,7 +6,7 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     // Note: The name inside setDesktopFileName must match the filename of your desktop file (without the .desktop extension).
-    app.setDesktopFileName("qtqmlproj_calc");
+    app.setDesktopFileName("qtqmlprojcalc");
 
     QQmlApplicationEngine engine;
     QObject::connect(
@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
         &app,
         []() { QCoreApplication::exit(-1); },
         Qt::QueuedConnection);
-    engine.loadFromModule("QtQMLProj_Calc", "Main");
+    engine.loadFromModule("QtQMLProjCalc", "Main");
 
     return app.exec();
 }
