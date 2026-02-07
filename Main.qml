@@ -1,12 +1,17 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import "./QmlComponents"
 
 Window {
     width: 355
-    height: 510
+    height: 450
     visible: true
-    title: "Calulator"
+    title: "Calculator"
+
+    // Set the floor
+    minimumWidth: 355
+    minimumHeight: 450
 
     ColumnLayout {
         anchors.fill: parent
@@ -18,9 +23,10 @@ Window {
         Rectangle {
             id: displayRect
             Layout.fillWidth: true
-            Layout.preferredHeight: 60
+            Layout.preferredHeight: 80
             color: "#eeeeee"
             border.color: "black"
+            radius: 10
 
             Text {
                 anchors.right: parent.right
@@ -40,30 +46,29 @@ Window {
             Layout.fillWidth: true
             Layout.fillHeight: true
 
-            Button { text: "AC"; Layout.fillHeight: true; Layout.fillWidth: true }
-            Button { text: "%"; Layout.fillHeight: true; Layout.fillWidth: true }
-            Button { text: "Back"; Layout.fillHeight: true; Layout.fillWidth: true }
-            Button { text: "/"; Layout.fillHeight: true; Layout.fillWidth: true }
+            OperationButton {text: "AC"}
+            OperationButton { text: "%" }
+            BackButton {text: "\u232b"}
+            OperationButton { text: "\u00f7" }
 
-            Button { text: "7"; Layout.fillHeight: true; Layout.fillWidth: true }
-            Button { text: "8"; Layout.fillHeight: true; Layout.fillWidth: true }
-            Button { text: "9"; Layout.fillHeight: true; Layout.fillWidth: true }
-            Button { text: "X"; Layout.fillHeight: true; Layout.fillWidth: true }
+            NumberButton { text: "7" }
+            NumberButton { text: "8" }
+            NumberButton { text: "9" }
+            OperationButton { text: "\u00d7" }
 
-            Button { text: "4"; Layout.fillHeight: true; Layout.fillWidth: true }
-            Button { text: "5"; Layout.fillHeight: true; Layout.fillWidth: true }
-            Button { text: "6"; Layout.fillHeight: true; Layout.fillWidth: true }
-            Button { text: "-"; Layout.fillHeight: true; Layout.fillWidth: true }
+            NumberButton { text: "4" }
+            NumberButton { text: "5" }
+            NumberButton { text: "6" }
+            OperationButton { text: "-" }
 
-            Button { text: "1"; Layout.fillHeight: true; Layout.fillWidth: true }
-            Button { text: "2"; Layout.fillHeight: true; Layout.fillWidth: true }
-            Button { text: "3"; Layout.fillHeight: true; Layout.fillWidth: true }
-            Button { text: "+"; Layout.fillHeight: true; Layout.fillWidth: true }
+            NumberButton { text: "1" }
+            NumberButton { text: "2" }
+            NumberButton { text: "3" }
+            OperationButton { text: "+" }
 
-            Button { text: "0"; Layout.fillHeight: true; Layout.fillWidth: true }
-            Button { text: "."; Layout.fillHeight: true; Layout.fillWidth: true }
-            Button { text: "="; Layout.fillHeight: true; Layout.fillWidth: true; Layout.columnSpan: 2 }
-
+            NumberButton { text: "0" }
+            OperationButton { text: "."}
+            EqualButton { text: "=" }
         }
     }
 }

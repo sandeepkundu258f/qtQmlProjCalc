@@ -1,3 +1,3 @@
-#include "calccontroller.h"
+#include "CalcController.h"
 
 CalcController::CalcController() {}

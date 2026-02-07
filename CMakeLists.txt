@@ -26,7 +26,13 @@ qt_add_qml_module(appQtQMLProjCalc
         QML_FILES
 SOURCES main.cpp
 QML_FILES Main.qml
-SOURCES controllers/calccontroller.h controllers/calccontroller.cpp
+SOURCES
+QML_FILES
+QML_FILES
+SOURCES Controllers/CalcController.cpp Controllers/CalcController.h
+QML_FILES QmlComponents/NumberButton.qml QmlComponents/OperationButton.qml
+QML_FILES QmlComponents/BackButton.qml
+QML_FILES QmlComponents/EqualButton.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
