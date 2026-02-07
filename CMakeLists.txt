@@ -16,7 +16,7 @@ qt_add_qml_module(appQtQMLProjCalc
     URI QtQMLProjCalc
     QML_FILES
 
-        RESOURCES qtqmlprojcalc.desktop
+        RESOURCES InstallScripts/qtqmlprojcalc.desktop
         RESOURCES .gitignore
         RESOURCES
         RESOURCES Icons/developer128.png Icons/developer16.png Icons/developer256.png
@@ -83,7 +83,7 @@ configure_file("${CMAKE_CURRENT_SOURCE_DIR}/InstallScripts/postinst.sh" "${CMAKE
 set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA "${CMAKE_BINARY_DIR}/InstallScripts/postinst")
 
 # Use an absolute path to bypass the /opt/qtqmlprojcalc prefix
-install(FILES qtqmlprojcalc.desktop
+install(FILES InstallScripts/qtqmlprojcalc.desktop
         DESTINATION /usr/share/applications)
 
 # Install the icon to the system icon cache
@@ -112,14 +112,7 @@ set(CPACK_DEBIAN_PACKAGE_DEPENDS "libxcb-cursor0, libc6, libstdc++6")
 # set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "This is my custom application description that will show in the installer.")
 
 # The first line is the summary, following lines are the long description
-set(CPACK_PACKAGE_DESCRIPTION "QtQmlProjCalc: A Professional UML Tool
- This application provides a comprehensive suite of tools for
- designing and visualizing QML-based architectures.
- .
- Features:
-  - Real-time QML rendering
-  - UML diagramming components
-  - Export to multiple formats")
+set(CPACK_PACKAGE_DESCRIPTION "QtQmlProjCalc: A calculator")
 
 # Define app version:
 set(CPACK_PACKAGE_VERSION_MAJOR "0")
