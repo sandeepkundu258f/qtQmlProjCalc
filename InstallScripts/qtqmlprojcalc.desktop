@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=Application
 Name=QT Calculator
-GenericName=Some software idk
-Comment=Calculate stuff
+GenericName=Calculator
+Comment=Basic Calculator
 Exec=/opt/qtqmlprojcalc/bin/appQtQMLProjCalc
 Icon=qtqmlprojcalc-icon
 Terminal=false
