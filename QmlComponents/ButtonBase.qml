@@ -5,6 +5,10 @@ import QtQuick.Layouts
 Button {
     id: buttonBase
 
+    onClicked: {
+        calcObj.onButtonPressed(text) // 'text' is the button's text property
+    }
+
     Layout.fillWidth: true
     Layout.fillHeight: true
     font.pixelSize: 18

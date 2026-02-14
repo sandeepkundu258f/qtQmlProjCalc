@@ -29,11 +29,16 @@ Window {
             radius: 10
 
             Text {
-                anchors.right: parent.right
+                anchors.fill: parent // Fill the whole gray rectangle
                 anchors.rightMargin: 10
-                anchors.verticalCenter: parent.verticalCenter
-                text: "0"
+
+                text: calcObj.displayText
+                horizontalAlignment: Text.AlignRight
+                verticalAlignment: Text.AlignVCenter
+
                 font.pixelSize: 32
+                fontSizeMode: Text.Fit // Shrink text to fit the width
+                minimumPixelSize: 14   // Don't shrink smaller than this
             }
         }
 
@@ -48,13 +53,13 @@ Window {
 
             OperationButton {text: "AC"}
             OperationButton { text: "%" }
-            BackButton {text: "\u232b"}
-            OperationButton { text: "\u00f7" }
+            BackButton {text: "\u232b"} //back
+            OperationButton { text: "\u00f7" } //divide
 
             NumberButton { text: "7" }
             NumberButton { text: "8" }
             NumberButton { text: "9" }
-            OperationButton { text: "\u00d7" }
+            OperationButton { text: "\u00d7" } //multiple
 
             NumberButton { text: "4" }
             NumberButton { text: "5" }
