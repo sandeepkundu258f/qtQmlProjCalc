@@ -36,6 +36,7 @@ QML_FILES QmlComponents/EqualButton.qml
 QML_FILES QmlComponents/ButtonBase.qml
 QML_FILES QmlComponents/CalcOutput.qml
 QML_FILES QmlComponents/CalcPartialOutput.qml
+QML_FILES QmlComponents/BasicCalcColumnLayout.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
