@@ -41,7 +41,7 @@ void CalcController::onButtonPressed(const QString &val) {
     }
     // Handle % button
     else if (val == "%") {
-        // 1. Split the string into chunks based on operators
+        // Split the string into chunks based on operators
         QStringList parts = m_displayText.split(QRegularExpression("[\u00d7\u00f7+\\-]"));
 
         if (parts.size() >= 1) {
@@ -49,18 +49,20 @@ void CalcController::onButtonPressed(const QString &val) {
             double currentVal = currentNumberStr.toDouble();
             double percentResult = 0;
 
-            // 2. If there's a number before this one (e.g., "200 + 10")
+            // If there's a number before this one (e.g., "200 + 10")
             if (parts.size() >= 2) {
                 double previousVal = parts.at(parts.size() - 2).toDouble(); // The "200"
                 percentResult = (previousVal * currentVal) / 100.0;
             } else {
-                // 3. Just a single number (e.g., "50")
+                // just a single number (e.g., "50")
                 percentResult = currentVal / 100.0;
             }
 
-            // 4. Update the display
+            // Update the display
             m_displayText.chop(currentNumberStr.length());
             m_displayText += QString::number(percentResult, 'g', 13);
+
+            m_lastOpEqual = false;
         }
     }
     // Handle decimal

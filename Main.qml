@@ -19,26 +19,52 @@ Window {
         spacing: 10
         //padding: 10
 
+        // 1. Move focus and keys here
+        focus: true
+
+        // 2. Force focus when the app starts
+        Component.onCompleted: forceActiveFocus()
+
+        Keys.onPressed: (event) => {
+                            if (event.key >= Qt.Key_0 && event.key <= Qt.Key_9) {
+                                calcObj.onButtonPressed(event.text);
+                            }
+                            else if (event.key === Qt.Key_Plus)      calcObj.onButtonPressed("+");
+                            else if (event.key === Qt.Key_Minus)     calcObj.onButtonPressed("-");
+                            else if (event.key === Qt.Key_Asterisk)  calcObj.onButtonPressed("\u00d7");
+                            else if (event.key === Qt.Key_Slash)     calcObj.onButtonPressed("\u00f7");
+                            else if (event.key === Qt.Key_Enter || event.key === Qt.Key_Return) {
+                                calcObj.onButtonPressed("=");
+                            }
+                            else if (event.key === Qt.Key_Backspace) {
+                                calcObj.onButtonPressed("\u232b"); // Match your BackButton unicode!
+                            }
+                            else if (event.key === Qt.Key_Escape) {
+                                calcObj.onButtonPressed("AC");
+                            }
+                            else if (event.key === Qt.Key_Period) {
+                                calcObj.onButtonPressed(".");
+                            }
+                        }
+
         // The Calculator Display
         Rectangle {
-            id: displayRect
+            id: displayRectResult
             Layout.fillWidth: true
-            Layout.preferredHeight: 80
+            Layout.preferredHeight: 100 // Total height for both parts
             color: "#eeeeee"
             border.color: "black"
             radius: 10
+            clip: true // Prevents text from bleeding outside the rounded corners
 
-            Text {
-                anchors.fill: parent // Fill the whole gray rectangle
-                anchors.rightMargin: 10
+            Column {
+                anchors.fill: parent
 
-                text: calcObj.displayText
-                horizontalAlignment: Text.AlignRight
-                verticalAlignment: Text.AlignVCenter
+                // Output
+                CalcOutput{}
 
-                font.pixelSize: 32
-                fontSizeMode: Text.Fit // Shrink text to fit the width
-                minimumPixelSize: 14   // Don't shrink smaller than this
+                // Partial Output
+                CalcPartialOutput{}
             }
         }
 
