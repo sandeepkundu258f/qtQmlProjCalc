@@ -14,7 +14,7 @@ public:
     explicit CalcController(QObject *parent = nullptr);
 
     // Getter for the property
-    QString displayTextFunc() const { return displayTextOnUI; }
+    QString displayTextFunc() const { return m_displayText; }
 
     // Q_INVOKABLE makes this function visible to QML
     Q_INVOKABLE void onButtonPressed(const QString &val);
@@ -24,7 +24,13 @@ signals:
     void displayTextChanged();
 
 private:
-    QString displayTextOnUI = "0"; // The actual data stored in INR-friendly formatting if needed
+    QString m_displayText = "0"; // The actual data stored
+    double m_firstValue = 0;
+    QString m_pendingOperator = "";
+    bool m_waitingForSecondValue = false; // This tracks if we just hit an operator
+    bool m_lastOpEqual = false;
+
+    QString solveExpression(QString exp);
 };
 
 #endif // CALCCONTROLLER_H

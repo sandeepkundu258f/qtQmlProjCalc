@@ -72,7 +72,7 @@ Window {
             OperationButton { text: "+" }
 
             NumberButton { text: "0" }
-            OperationButton { text: "."}
+            NumberButton { text: "."}
             EqualButton { text: "=" }
         }
     }
