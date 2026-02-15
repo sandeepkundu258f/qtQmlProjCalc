@@ -39,6 +39,30 @@ void CalcController::onButtonPressed(const QString &val) {
         m_displayText = solveExpression(m_displayText);
         m_lastOpEqual = true;
     }
+    // Handle % button
+    else if (val == "%") {
+        // 1. Split the string into chunks based on operators
+        QStringList parts = m_displayText.split(QRegularExpression("[\u00d7\u00f7+\\-]"));
+
+        if (parts.size() >= 1) {
+            QString currentNumberStr = parts.last(); // The "10" in "200 + 10"
+            double currentVal = currentNumberStr.toDouble();
+            double percentResult = 0;
+
+            // 2. If there's a number before this one (e.g., "200 + 10")
+            if (parts.size() >= 2) {
+                double previousVal = parts.at(parts.size() - 2).toDouble(); // The "200"
+                percentResult = (previousVal * currentVal) / 100.0;
+            } else {
+                // 3. Just a single number (e.g., "50")
+                percentResult = currentVal / 100.0;
+            }
+
+            // 4. Update the display
+            m_displayText.chop(currentNumberStr.length());
+            m_displayText += QString::number(percentResult, 'g', 13);
+        }
+    }
     // Handle decimal
     else if (val == ".") {
         // Get the last "chunk" (the number currently being typed)
@@ -60,7 +84,6 @@ void CalcController::onButtonPressed(const QString &val) {
             m_lastOpEqual = false;
             m_displayText = "0.";
         }
-
     }
     // Handle Numbers
     else {
