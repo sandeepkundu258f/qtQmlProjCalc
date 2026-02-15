@@ -31,7 +31,7 @@ ColumnLayout {
                         else if (event.key === Qt.Key_Slash){
                             calcObj.onButtonPressed("\u00f7");
                         }
-                        else if (event.key === Qt.Key_Enter || event.key === Qt.Key_Return) {
+                        else if (event.key === Qt.Key_Enter || event.key === Qt.Key_Return || event.key === Qt.Key_Equal) {
                             calcObj.onButtonPressed("=");
                         }
                         else if (event.key === Qt.Key_Backspace) {

@@ -1,7 +1,9 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-import "./QmlComponents"
+import "./QmlComponents/Buttons"
+import "./QmlComponents/Layouts"
+import "./QmlComponents/Outputs"
 
 Window {
     width: 355

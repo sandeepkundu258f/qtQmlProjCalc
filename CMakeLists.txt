@@ -16,27 +16,19 @@ qt_add_qml_module(appQtQMLProjCalc
     URI QtQMLProjCalc
     QML_FILES
 
-        RESOURCES InstallScripts/qtqmlprojcalc.desktop
-        RESOURCES .gitignore
-        RESOURCES
-        RESOURCES Icons/developer128.png Icons/developer16.png Icons/developer256.png
-        RESOURCES
-        RESOURCES InstallScripts/postinst.sh
-        SOURCES
-        QML_FILES
-SOURCES main.cpp
-QML_FILES Main.qml
-SOURCES
-QML_FILES
-QML_FILES
-SOURCES Controllers/CalcController.cpp Controllers/CalcController.h
-QML_FILES QmlComponents/NumberButton.qml QmlComponents/OperationButton.qml
-QML_FILES QmlComponents/BackButton.qml
-QML_FILES QmlComponents/EqualButton.qml
-QML_FILES QmlComponents/ButtonBase.qml
-QML_FILES QmlComponents/CalcOutput.qml
-QML_FILES QmlComponents/CalcPartialOutput.qml
-QML_FILES QmlComponents/BasicCalcColumnLayout.qml
+    RESOURCES InstallScripts/qtqmlprojcalc.desktop
+    RESOURCES .gitignore
+    RESOURCES
+    RESOURCES Icons/developer128.png Icons/developer16.png Icons/developer256.png
+    RESOURCES
+    RESOURCES InstallScripts/postinst.sh
+    SOURCES
+    QML_FILES
+    SOURCES main.cpp
+    QML_FILES Main.qml
+    SOURCES Controllers/CalcController.cpp Controllers/CalcController.h
+    QML_FILES QmlComponents/Buttons/BackButton.qml QmlComponents/Buttons/ButtonBase.qml QmlComponents/Buttons/EqualButton.qml QmlComponents/Buttons/NumberButton.qml QmlComponents/Buttons/OperationButton.qml
+    QML_FILES QmlComponents/Layouts/BasicCalcColumnLayout.qml QmlComponents/Outputs/CalcOutput.qml QmlComponents/Outputs/CalcPartialOutput.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
