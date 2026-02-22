@@ -11,15 +11,18 @@ void CalcController::onButtonPressed(const QString &val) {
     // Handle Clear
     if (val == "AC") {
         m_displayText = "0";
+        m_partialCalcText = "";
         m_lastOpEqual = false;
     }
     // Handle Backspace
     else if (val == "\u232b") {
         if (m_displayText.length() > 1) {
             m_displayText.chop(1);
+            solvePartialExpression(m_displayText);
         }
         else{
             m_displayText = "0";
+            m_partialCalcText = "";
         }
         m_lastOpEqual = false;
     }
@@ -37,6 +40,7 @@ void CalcController::onButtonPressed(const QString &val) {
     // Handle Equals (The Math)
     else if (val == "=") {
         m_displayText = solveExpression(m_displayText);
+        m_partialCalcText = "";
         m_lastOpEqual = true;
     }
     // Handle % button
@@ -64,6 +68,8 @@ void CalcController::onButtonPressed(const QString &val) {
 
             m_lastOpEqual = false;
         }
+
+        solvePartialExpression(m_displayText);
     }
     // Handle decimal
     else if (val == ".") {
@@ -86,6 +92,8 @@ void CalcController::onButtonPressed(const QString &val) {
             m_lastOpEqual = false;
             m_displayText = "0.";
         }
+
+        solvePartialExpression(m_displayText);
     }
     // Handle Numbers
     else {
@@ -96,12 +104,14 @@ void CalcController::onButtonPressed(const QString &val) {
         else {
             m_displayText += val;
         }
+
+        solvePartialExpression(m_displayText);
     }
 
     emit displayTextChanged(); // Refresh UI
+    emit partialTextChanged();
 }
 
-#include <QJSEngine>
 
 QString CalcController::solveExpression(QString exp) {
     // Replace visual symbols with math symbols for the engine
@@ -117,4 +127,21 @@ QString CalcController::solveExpression(QString exp) {
     return QString::number(result.toNumber(), 'g', 13);
 
     //return result.toString();
+}
+
+void CalcController::solvePartialExpression(QString exp){
+
+    QStringList parts = m_displayText.split(QRegularExpression("[\u00d7\u00f7+\\-]"));
+    if(!(parts.size()==2 && parts[1].isEmpty()) && parts.size()>1){
+        QString result = solveExpression(exp);
+
+        if(result != "Error"){
+            m_partialCalcText = result;
+        }
+    }
+    else{
+        m_partialCalcText = "";
+    }
+
+
 }

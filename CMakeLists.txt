@@ -36,6 +36,7 @@ qt_add_qml_module(appQtQMLProjCalc
     RESOURCES InstallScripts/prerm.sh
     RESOURCES generateRPM.sh
     RESOURCES generateDEB.sh
+    RESOURCES README.md
 )
 
 target_link_libraries(appQtQMLProjCalc

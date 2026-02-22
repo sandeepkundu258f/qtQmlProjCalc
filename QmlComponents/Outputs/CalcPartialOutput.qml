@@ -9,7 +9,7 @@ Rectangle {
         anchors.fill: parent
         anchors.rightMargin: 10
         anchors.bottomMargin: 10
-        text: "Partial calc goes  here"
+        text: calcObj.partialText
         font.pixelSize: 12
         color: "#666666" // Fainter color for the small text
         horizontalAlignment: Text.AlignRight

@@ -6,5 +6,5 @@ Comment=Basic Calculator
 Exec=/opt/qtqmlprojcalc/bin/appQtQMLProjCalc
 Icon=qtqmlprojcalc-icon
 Terminal=false
-Categories=Development;Qt;Graphics;
+Categories=Utility;Qt;Tools;
 StartupWMClass=appQtQMLProjCalc
