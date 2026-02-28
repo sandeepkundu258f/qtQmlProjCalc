@@ -37,6 +37,7 @@ qt_add_qml_module(appQtQMLProjCalc
     RESOURCES generateRPM.sh
     RESOURCES generateDEB.sh
     RESOURCES README.md
+    RESOURCES LICENSE
 )
 
 target_link_libraries(appQtQMLProjCalc
@@ -115,7 +116,7 @@ set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA
 )
 
 # RPM (Fedora) Specific
-set(CPACK_RPM_PACKAGE_LICENSE "MIT")
+set(CPACK_RPM_PACKAGE_LICENSE "GNU GPL v3")
 set(CPACK_RPM_PACKAGE_RELEASE "1")
 set(CPACK_RPM_PACKAGE_AUTOREQ "YES")
 set(CPACK_RPM_PACKAGE_PACKAGER "Sandeep")

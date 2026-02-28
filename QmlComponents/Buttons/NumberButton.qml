@@ -4,14 +4,18 @@ ButtonBase {
     id: numberButton
     font.weight: Font.Medium
 
-    readonly property color finalColor: numberButton.pressed
-        ? (isdarkMode ? "#212529" : "#aaaaaa")
-        : (numberButton.hovered
-            ? (isdarkMode ? "#454a4f" : "#eeeeee")
-            : (isdarkMode ? "#31363b" : "#ffffff"))
+    function getButtonColor() {
+        if (pressed) {
+            return isdarkMode ? "#212529" : "#aaaaaa"
+        }
+        if (hovered) {
+            return isdarkMode ? "#454a4f" : "#eeeeee"
+        }
+        return isdarkMode ? "#31363b" : "#ffffff"
+    }
 
     background: Rectangle {
-        color:  finalColor
+        color:  numberButton.getButtonColor()
         radius: 10
         border.color: borderColor
         border.width: 1

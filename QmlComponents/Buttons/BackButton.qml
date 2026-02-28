@@ -3,14 +3,18 @@ import QtQuick
 OperationButton {
     id: backBtn
 
-    readonly property color finalColor: backBtn.pressed
-        ? (isdarkMode ? "#5e191d" : "#82232c")
-        : (backBtn.hovered
-            ? (isdarkMode ? "#a5333a" : "#c43543")
-            : (isdarkMode ? "#8b2b30" : "#a62d39"))
+    function getButtonColor() {
+        if (pressed) {
+            return isdarkMode ? "#5e191d" : "#82232c"
+        }
+        if (hovered) {
+            return isdarkMode ? "#a5333a" : "#c43543"
+        }
+        return isdarkMode ? "#8b2b30" : "#a62d39"
+    }
 
     background: Rectangle {
-        color: finalColor
+        color: backBtn.getButtonColor()
         implicitWidth: 80
         implicitHeight: 30
 

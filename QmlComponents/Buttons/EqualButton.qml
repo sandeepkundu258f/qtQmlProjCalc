@@ -5,14 +5,18 @@ OperationButton {
     id: equalBtn
     Layout.columnSpan: 2
 
-    readonly property color finalColor: equalBtn.pressed
-        ? (isdarkMode ? "#1e3d1a" : "#054017")
-        : (equalBtn.hovered
-            ? (isdarkMode ? "#3a7532" : "#0a7d2d")
-            : (isdarkMode ? "#2d5a27" : "#075920"))
+    function getButtonColor() {
+        if (pressed) {
+            return isdarkMode ? "#1e3d1a" : "#054017"
+        }
+        if (hovered) {
+            return isdarkMode ? "#3a7532" : "#0a7d2d"
+        }
+        return isdarkMode ? "#2d5a27" : "#075920"
+    }
 
     background: Rectangle {
-        color: finalColor
+        color: equalBtn.getButtonColor()
         implicitWidth: 80
         implicitHeight: 30
 
