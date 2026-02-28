@@ -5,12 +5,12 @@ OperationButton {
 
     function getButtonColor() {
         if (pressed) {
-            return isdarkMode ? "#5e191d" : "#82232c"
+            return backBtnColorPress
         }
         if (hovered) {
-            return isdarkMode ? "#a5333a" : "#c43543"
+            return backBtnColorHover
         }
-        return isdarkMode ? "#8b2b30" : "#a62d39"
+        return backBtnColorBase
     }
 
     background: Rectangle {

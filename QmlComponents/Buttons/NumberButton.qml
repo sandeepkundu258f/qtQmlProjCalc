@@ -6,12 +6,12 @@ ButtonBase {
 
     function getButtonColor() {
         if (pressed) {
-            return isdarkMode ? "#212529" : "#aaaaaa"
+            return numberBtnColorPress
         }
         if (hovered) {
-            return isdarkMode ? "#454a4f" : "#eeeeee"
+            return numberBtnColorHover
         }
-        return isdarkMode ? "#31363b" : "#ffffff"
+        return numberBtnColorBase
     }
 
     background: Rectangle {

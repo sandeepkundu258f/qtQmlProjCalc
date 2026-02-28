@@ -7,12 +7,12 @@ OperationButton {
 
     function getButtonColor() {
         if (pressed) {
-            return isdarkMode ? "#1e3d1a" : "#054017"
+            return equalBtnColorPress
         }
         if (hovered) {
-            return isdarkMode ? "#3a7532" : "#0a7d2d"
+            return equalBtnColorHover
         }
-        return isdarkMode ? "#2d5a27" : "#075920"
+        return equalBtnColorBase
     }
 
     background: Rectangle {

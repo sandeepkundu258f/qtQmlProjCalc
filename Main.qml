@@ -52,6 +52,22 @@ Window {
     readonly property color btnTextColor: isdarkMode ? "#eff0f1" : "black"
     readonly property color btnTextColorSpl: isdarkMode ? "#eff0f1" : "white"
 
+    readonly property color backBtnColorPress: isdarkMode ? "#5e191d" : "#82232c"
+    readonly property color backBtnColorHover: isdarkMode ? "#a5333a" : "#c43543"
+    readonly property color backBtnColorBase: isdarkMode ? "#8b2b30" : "#a62d39"
+
+    readonly property color equalBtnColorPress: isdarkMode ? "#1e3d1a" : "#054017"
+    readonly property color equalBtnColorHover: isdarkMode ? "#3a7532" : "#0a7d2d"
+    readonly property color equalBtnColorBase: isdarkMode ? "#2d5a27" : "#075920"
+
+    readonly property color numberBtnColorPress: isdarkMode ? "#212529" : "#aaaaaa"
+    readonly property color numberBtnColorHover: isdarkMode ? "#454a4f" : "#eeeeee"
+    readonly property color numberBtnColorBase: isdarkMode ? "#31363b" : "#ffffff"
+
+    readonly property color opBtnColorPress: isdarkMode ? "#2d3237" : "#aaaaaa"
+    readonly property color opBtnColorHover: isdarkMode ? "#565f67" : "#eeeeee"
+    readonly property color opBtnColorBase: isdarkMode ? "#3d444b" : "#ffffff"
+
     color: bgColor
 
     BasicCalcColumnLayout {
