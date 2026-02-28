@@ -18,29 +18,38 @@ WindowBaseLayout {
 
 
     function formatDisplay(value) {
-        if (value === "" || value === "-") return value; // Don't format a lone minus
+        if (value === "" || value === "-") return value;
 
         let locale = Qt.locale();
+        let parts = value.split(/([\+\-\u00d7\u00f7])/);
 
-        // 1. Improved Regex: Matches operators (+, ×, ÷) and
-        // the minus sign (-) only when it acts as an operator (between numbers).
-        // This leaves leading negative signs attached to their numbers.
-        let parts = value.split(/([+\u00d7\u00f7]|(?<=\d)-)/);
-
-        return parts.map(part => {
+        return parts.map((part, index) => {
             if (part === "" || part === undefined) return "";
 
-            // 2. If it's a standalone operator, return it with spacing
-            if (["+", "\u00d7", "\u00f7", "-"].includes(part)) {
-                return " " + part + " ";
+            //Handle Operators
+            if (["+", "\u00d7", "\u00f7"].includes(part) || (part === "-" && index > 0)) {
+                return part;
             }
+            if (part === "-" && index === 0) return "-";
 
-            // 3. Parse the number (handles negative signs automatically)
-            let num = parseFloat(part);
+            // Handle the number logic
+            // Split the number into Integer and Decimal parts
+            let subParts = part.split(".");
+            let integerPart = subParts[0];
+            let decimalPart = subParts.length > 1 ? subParts[1] : null;
+
+            // Format only the integer part with commas
+            let num = parseFloat(integerPart);
             if (isNaN(num)) return part;
 
-            // 4. Format with commas based on Locale (INR vs USA)
-            return num.toLocaleString(locale, 'f', num % 1 === 0 ? 0 : 2);
+            // Use toLocaleString only for the whole number part
+            let formattedInt = num.toLocaleString(locale, 'f', 0);
+
+            // Stitch it back together
+            if (decimalPart !== null) {
+                return formattedInt + "." + decimalPart;
+            }
+            return formattedInt;
         }).join("");
     }
 
