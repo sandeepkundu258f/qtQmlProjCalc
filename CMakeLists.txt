@@ -39,6 +39,7 @@ qt_add_qml_module(appQtQMLProjCalc
     RESOURCES README.md
     RESOURCES LICENSE
     QML_FILES QmlComponents/Layouts/WindowBaseLayout.qml
+    QML_FILES QmlComponents/Scripts/localeLogic.js
 )
 
 target_link_libraries(appQtQMLProjCalc

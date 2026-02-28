@@ -1,4 +1,5 @@
 import QtQuick
+import "../Scripts/localeLogic.js" as LocaleLogic
 
 Rectangle {
     width: parent.width
@@ -9,8 +10,7 @@ Rectangle {
         anchors.fill: parent
         anchors.rightMargin: 10
         anchors.bottomMargin: 10
-        //ext: calcObj.partialText
-        text: formatDisplay(calcObj.partialText)
+        text: LocaleLogic.formatDisplay(calcObj.partialText)
         font.pixelSize: 12
         color: txtSecondary
         horizontalAlignment: Text.AlignRight
