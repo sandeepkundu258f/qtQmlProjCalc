@@ -38,6 +38,7 @@ qt_add_qml_module(appQtQMLProjCalc
     RESOURCES generateDEB.sh
     RESOURCES README.md
     RESOURCES LICENSE
+    QML_FILES QmlComponents/Layouts/WindowBaseLayout.qml
 )
 
 target_link_libraries(appQtQMLProjCalc

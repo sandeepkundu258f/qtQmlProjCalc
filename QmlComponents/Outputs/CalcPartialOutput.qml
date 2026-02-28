@@ -9,7 +9,8 @@ Rectangle {
         anchors.fill: parent
         anchors.rightMargin: 10
         anchors.bottomMargin: 10
-        text: calcObj.partialText
+        //ext: calcObj.partialText
+        text: formatDisplay(calcObj.partialText)
         font.pixelSize: 12
         color: txtSecondary
         horizontalAlignment: Text.AlignRight
