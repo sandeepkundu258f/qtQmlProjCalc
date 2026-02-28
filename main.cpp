@@ -15,8 +15,8 @@ int main(int argc, char *argv[])
 
     engine.rootContext()->setContextProperty("calcObj", &controller);
 
-    using namespace Qt::StringLiterals; // Add this line!
-    const QUrl url(u"qrc:/QtQMLProjCalc/Main.qml"_s); // Change _qs to _s
+    using namespace Qt::StringLiterals;
+    const QUrl url(u"qrc:/QtQMLProjCalc/Main.qml"_s);
 
     QObject::connect(
         &engine,

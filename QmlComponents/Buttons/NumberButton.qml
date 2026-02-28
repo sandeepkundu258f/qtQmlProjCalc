@@ -1,15 +1,19 @@
 import QtQuick
-import QtQuick.Controls
-import QtQuick.Layouts
 
 ButtonBase {
     id: numberButton
     font.weight: Font.Medium
 
+    readonly property color finalColor: numberButton.pressed
+        ? (isdarkMode ? "#212529" : "#aaaaaa")
+        : (numberButton.hovered
+            ? (isdarkMode ? "#454a4f" : "#eeeeee")
+            : (isdarkMode ? "#31363b" : "#ffffff"))
+
     background: Rectangle {
-        color:  numberButton.pressed ? "#aaaaaa" : (numberButton.hovered ? "#eeeeee" : "white")
+        color:  finalColor
         radius: 10
-        border.color: "black"
+        border.color: borderColor
         border.width: 1
 
         implicitWidth: 80  // Suggests a size, but doesn't force it

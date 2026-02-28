@@ -4,7 +4,7 @@ A calculator application (because I was bored) built with **Qt 6.10** and **QML*
 
 ## Quick Install
 
-Don't want to build from source? Just grab the pre-built package from the [**Releases**](../../releases) section of this repository!
+Use the pre-built package from the [**Releases**](../../releases) section of this repository!
 
 - **Linux Mint / Ubuntu / Debian** → download the `.deb` file
 - **Fedora** → download the `.rpm` file

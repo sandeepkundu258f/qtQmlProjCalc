@@ -11,7 +11,7 @@ Rectangle {
         anchors.bottomMargin: 10
         text: calcObj.partialText
         font.pixelSize: 12
-        color: "#666666" // Fainter color for the small text
+        color: txtSecondary
         horizontalAlignment: Text.AlignRight
         verticalAlignment: Text.AlignVCenter
     }

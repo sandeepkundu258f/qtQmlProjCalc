@@ -4,20 +4,26 @@ import QtQuick.Layouts
 OperationButton {
     id: equalBtn
     Layout.columnSpan: 2
-    background: Rectangle {
-        color: equalBtn.pressed ? "#054017" : (equalBtn.hovered ? "#0a7d2d" : "#075920")
 
+    readonly property color finalColor: equalBtn.pressed
+        ? (isdarkMode ? "#1e3d1a" : "#054017")
+        : (equalBtn.hovered
+            ? (isdarkMode ? "#3a7532" : "#0a7d2d")
+            : (isdarkMode ? "#2d5a27" : "#075920"))
+
+    background: Rectangle {
+        color: finalColor
         implicitWidth: 80
         implicitHeight: 30
 
         radius: 10
-        border.color: "#b0b6bf"
+        border.color: borderColorOpBtn
         border.width: 1
     }
     contentItem: Text {
         text: parent.text
         font: parent.font
-        color: "white"
+        color: btnTextColorSpl
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
     }

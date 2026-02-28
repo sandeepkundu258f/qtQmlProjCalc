@@ -16,5 +16,6 @@ Rectangle {
         font.pixelSize: 32
         fontSizeMode: Text.Fit
         minimumPixelSize: 14
+        color: txtMain
     }
 }
