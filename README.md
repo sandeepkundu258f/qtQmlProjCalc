@@ -4,7 +4,7 @@ A calculator application (because I was bored) built with **Qt 6.10** and **QML*
 
 ## Quick Install
 
-Don't want to build from source? Just grab the pre-built package from the [**Releases**](../../releases) section of this repository!
+Use the pre-built package from the [**Releases**](../../releases) section of this repository!
 
 - **Linux Mint / Ubuntu / Debian** → download the `.deb` file
 - **Fedora** → download the `.rpm` file
@@ -108,4 +108,4 @@ sudo dnf remove qtqmlprojcalc
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the **[GNU GPL v3](LICENSE)**. This software uses the Qt Framework, which is licensed under the **GNU GPL v3**/**GNU LGPL v3**. For more information, please visit the [Qt website](https://www.qt.io/).

@@ -1,6 +1,4 @@
 import QtQuick
-import QtQuick.Controls
-import QtQuick.Layouts
 
 Rectangle {
     width: parent.width
@@ -10,11 +8,12 @@ Rectangle {
     Text {
         anchors.fill: parent
         anchors.rightMargin: 10
-        text: calcObj.displayText
+        text: formatDisplay(calcObj.displayText)
         horizontalAlignment: Text.AlignRight
         verticalAlignment: Text.AlignVCenter
-        font.pixelSize: 32
+        font.pixelSize: text.length > 10 ? 30 : 32
         fontSizeMode: Text.Fit
         minimumPixelSize: 14
+        color: txtMain
     }
 }

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(QtQMLProjCalc VERSION 0.1.2 LANGUAGES CXX)
+project(QtQMLProjCalc VERSION 1.1.1 LANGUAGES CXX)
 
 # --- 1. BASIC CONFIGURATION ---
 set(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
@@ -37,6 +37,8 @@ qt_add_qml_module(appQtQMLProjCalc
     RESOURCES generateRPM.sh
     RESOURCES generateDEB.sh
     RESOURCES README.md
+    RESOURCES LICENSE
+    QML_FILES QmlComponents/Layouts/WindowBaseLayout.qml
 )
 
 target_link_libraries(appQtQMLProjCalc
@@ -107,6 +109,7 @@ set(CPACK_PACKAGE_VERSION "${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSIO
 # DEBIAN Specific
 set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Sandeep <sandeepkundu258@gmail.com>")
 set(CPACK_DEBIAN_PACKAGE_DEPENDS "libxcb-cursor0, libc6, libstdc++6")
+set(CPACK_DEBIAN_PACKAGE_RECOMMENDS "qgnomeplatform-qt6, adwaita-qt6")
 set(CPACK_DEBIAN_PACKAGE_ARCHITECTURE "amd64")
 set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA
     "${CMAKE_BINARY_DIR}/InstallScripts/postinst"
@@ -114,7 +117,7 @@ set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA
 )
 
 # RPM (Fedora) Specific
-set(CPACK_RPM_PACKAGE_LICENSE "MIT")
+set(CPACK_RPM_PACKAGE_LICENSE "GNU GPL v3")
 set(CPACK_RPM_PACKAGE_RELEASE "1")
 set(CPACK_RPM_PACKAGE_AUTOREQ "YES")
 set(CPACK_RPM_PACKAGE_PACKAGER "Sandeep")

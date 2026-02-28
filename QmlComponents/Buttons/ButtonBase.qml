@@ -15,7 +15,7 @@ Button {
     contentItem: Text {
         text: parent.text
         font: parent.font
-        color: "black"
+        color: btnTextColor
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
     }

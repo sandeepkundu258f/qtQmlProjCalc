@@ -5,7 +5,8 @@ import "./QmlComponents/Buttons"
 import "./QmlComponents/Layouts"
 import "./QmlComponents/Outputs"
 
-Window {
+WindowBaseLayout {
+    id: root
     width: 355
     height: 450
     visible: true
@@ -15,6 +16,34 @@ Window {
     minimumWidth: 355
     minimumHeight: 450
 
+
+    function formatDisplay(value) {
+        if (value === "" || value === "-") return value; // Don't format a lone minus
+
+        let locale = Qt.locale();
+
+        // 1. Improved Regex: Matches operators (+, ×, ÷) and
+        // the minus sign (-) only when it acts as an operator (between numbers).
+        // This leaves leading negative signs attached to their numbers.
+        let parts = value.split(/([+\u00d7\u00f7]|(?<=\d)-)/);
+
+        return parts.map(part => {
+            if (part === "" || part === undefined) return "";
+
+            // 2. If it's a standalone operator, return it with spacing
+            if (["+", "\u00d7", "\u00f7", "-"].includes(part)) {
+                return " " + part + " ";
+            }
+
+            // 3. Parse the number (handles negative signs automatically)
+            let num = parseFloat(part);
+            if (isNaN(num)) return part;
+
+            // 4. Format with commas based on Locale (INR vs USA)
+            return num.toLocaleString(locale, 'f', num % 1 === 0 ? 0 : 2);
+        }).join("");
+    }
+
     BasicCalcColumnLayout {
 
         // The Calculator Display
@@ -22,24 +51,21 @@ Window {
             id: displayRectResult
             Layout.fillWidth: true
             Layout.preferredHeight: 100 // Total height for both parts
-            color: "#eeeeee"
-            border.color: "black"
+            color: displayBox
+            border.color: borderColor
             radius: 10
             clip: true // Prevents text from bleeding outside the rounded corners
 
             Column {
                 anchors.fill: parent
 
-                // Output
-                CalcOutput{}
-
-                // Partial Output
-                CalcPartialOutput{}
+                CalcOutput {}
+                CalcPartialOutput {}
             }
         }
 
         // The Button Grid
-        GridLayout{
+        GridLayout {
             id: buttonGrid
             columns: 4
             columnSpacing: 5

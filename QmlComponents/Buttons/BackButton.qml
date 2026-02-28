@@ -2,20 +2,30 @@ import QtQuick
 
 OperationButton {
     id: backBtn
-    background: Rectangle {
-        color: backBtn.pressed ? "#82232c" : (backBtn.hovered ? "#c43543" : "#a62d39")
 
+    function getButtonColor() {
+        if (pressed) {
+            return backBtnColorPress
+        }
+        if (hovered) {
+            return backBtnColorHover
+        }
+        return backBtnColorBase
+    }
+
+    background: Rectangle {
+        color: backBtn.getButtonColor()
         implicitWidth: 80
         implicitHeight: 30
 
         radius: 10
-        border.color: "#b0b6bf"
+        border.color: borderColorOpBtn
         border.width: 1
     }
     contentItem: Text {
         text: parent.text
         font: parent.font
-        color: "white"
+        color: btnTextColorSpl
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
     }

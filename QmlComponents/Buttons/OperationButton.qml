@@ -1,15 +1,23 @@
 import QtQuick
-import QtQuick.Controls
-import QtQuick.Layouts
 
 ButtonBase {
     id: operationButton
     font.weight: Font.Normal
 
+    function getButtonColor() {
+        if (pressed) {
+            return opBtnColorPress
+        }
+        if (hovered) {
+            return opBtnColorHover
+        }
+        return opBtnColorBase
+    }
+
     background: Rectangle {
-        color: operationButton.pressed ? "#aaaaaa" : (operationButton.hovered ? "#eeeeee" : "white")
+        color: operationButton.getButtonColor()
         radius: 10
-        border.color: "#b0b6bf"
+        border.color: borderColorOpBtn
         border.width: 1
 
         implicitWidth: 80  // Suggests a size, but doesn't force it
