@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(QtQMLProjCalc VERSION 1.1.1 LANGUAGES CXX)
+project(QtQMLProjCalc VERSION 1.2.0 LANGUAGES CXX)
 
 # --- 1. BASIC CONFIGURATION ---
 set(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
@@ -23,7 +23,6 @@ qt_add_qml_module(appQtQMLProjCalc
     RESOURCES InstallScripts/qtqmlprojcalc.desktop
     RESOURCES .gitignore
     RESOURCES
-    RESOURCES Icons/developer128.png Icons/developer16.png Icons/developer256.png
     RESOURCES
     RESOURCES InstallScripts/postinst.sh
     SOURCES
@@ -40,6 +39,8 @@ qt_add_qml_module(appQtQMLProjCalc
     RESOURCES LICENSE
     QML_FILES QmlComponents/Layouts/WindowBaseLayout.qml
     QML_FILES QmlComponents/Scripts/localeLogic.js
+    RESOURCES Icons/calculator128.png Icons/calculator16.png Icons/calculator256.png Icons/calculator512.png
+    RESOURCES Icons/calculator16.png Icons/calculator24.png Icons/calculator32.png Icons/calculator64.png Icons/calculator128.png Icons/calculator256.png Icons/calculator512.png
 )
 
 target_link_libraries(appQtQMLProjCalc
@@ -68,15 +69,27 @@ install(FILES InstallScripts/qtqmlprojcalc.desktop
         DESTINATION /usr/share/applications)
 
 # System Integration: Icons (Different sizes)
-install(FILES Icons/developer256.png
-        DESTINATION /usr/share/icons/hicolor/256x256/apps/
-        RENAME qtqmlprojcalc-icon.png)
-install(FILES Icons/developer128.png
-        DESTINATION /usr/share/icons/hicolor/128x128/apps/
-        RENAME qtqmlprojcalc-icon.png)
-install(FILES Icons/developer16.png
-        DESTINATION /usr/share/icons/hicolor/16x16/apps/
-        RENAME qtqmlprojcalc-icon.png)
+install(FILES Icons/calculator512.png
+    DESTINATION /usr/share/icons/hicolor/512x512/apps/
+    RENAME qtqmlprojcalc-icon.png)
+install(FILES Icons/calculator256.png
+    DESTINATION /usr/share/icons/hicolor/256x256/apps/
+    RENAME qtqmlprojcalc-icon.png)
+install(FILES Icons/calculator128.png
+    DESTINATION /usr/share/icons/hicolor/128x128/apps/
+    RENAME qtqmlprojcalc-icon.png)
+install(FILES Icons/calculator64.png
+    DESTINATION /usr/share/icons/hicolor/64x64/apps/
+    RENAME qtqmlprojcalc-icon.png)
+install(FILES Icons/calculator32.png
+    DESTINATION /usr/share/icons/hicolor/32x32/apps/
+    RENAME qtqmlprojcalc-icon.png)
+install(FILES Icons/calculator24.png
+    DESTINATION /usr/share/icons/hicolor/24x24/apps/
+    RENAME qtqmlprojcalc-icon.png)
+install(FILES Icons/calculator16.png
+    DESTINATION /usr/share/icons/hicolor/16x16/apps/
+    RENAME qtqmlprojcalc-icon.png)
 
 # --- 4. PACKAGING (CPACK) ---
 # Prepare the post-install script for Debian

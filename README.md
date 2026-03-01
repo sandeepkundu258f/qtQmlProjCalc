@@ -109,3 +109,6 @@ sudo dnf remove qtqmlprojcalc
 ## License
 
 This project is licensed under the **[GNU GPL v3](LICENSE)**. This software uses the Qt Framework, which is licensed under the **GNU GPL v3**/**GNU LGPL v3**. For more information, please visit the [Qt website](https://www.qt.io/).
+
+## Credits
+- App Icon: [Calculator icons created by Freepik - Flaticon](https://www.flaticon.com/free-icon/calculator_1191636?term=calculator&page=1&position=27&origin=search&related_id=1191636)
