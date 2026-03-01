@@ -6,7 +6,6 @@
 CalcController::CalcController(QObject *parent) : QObject(parent) {}
 
 void CalcController::onButtonPressed(const QString &val) {
-    QString operators = "+-\u00d7\u00f7";
 
     // Handle Clear
     if (val == "AC") {
@@ -27,13 +26,10 @@ void CalcController::onButtonPressed(const QString &val) {
         m_lastOpEqual = false;
     }
     // Handle Operators
-    else if (operators.contains(val)) {
-        QString lastChar = m_displayText.right(1);
-
+    else if (m_operators.contains(val)) {
         // If last char is an operator, replace it (prevents 6 x +)
-        if (operators.contains(lastChar)) {
-            m_displayText.chop(1);
-        }
+        m_displayText = removeLastOp(m_displayText);
+
         m_displayText += val;
         m_lastOpEqual = false;
     }
@@ -114,6 +110,9 @@ void CalcController::onButtonPressed(const QString &val) {
 
 
 QString CalcController::solveExpression(QString exp) {
+
+    exp = removeLastOp(exp);
+
     // Replace visual symbols with math symbols for the engine
     exp.replace("\u00d7", "*");
     exp.replace("\u00f7", "/");
@@ -142,6 +141,15 @@ void CalcController::solvePartialExpression(QString exp){
     else{
         m_partialCalcText = "";
     }
+}
 
+QString CalcController::removeLastOp(QString exp){
+    QString lastChar = exp.right(1);
 
+    // If last char is an operator, remove it
+    if (m_operators.contains(lastChar)) {
+        exp.chop(1);
+    }
+
+    return exp;
 }
