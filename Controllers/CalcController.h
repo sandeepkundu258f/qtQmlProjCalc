@@ -35,8 +35,11 @@ private:
 
     QString m_partialCalcText = "";
 
+    QString m_operators = "+-\u00d7\u00f7";
+
     QString solveExpression(QString exp);
     void solvePartialExpression(QString exp);
+    QString removeLastOp(QString exp); // Remove last trailing op
 };
 
 #endif // CALCCONTROLLER_H
