@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(QtQMLProjCalc VERSION 1.2.0 LANGUAGES CXX)
+project(QtQMLProjCalc VERSION 1.2.1 LANGUAGES CXX)
 
 # --- 1. BASIC CONFIGURATION ---
 set(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
